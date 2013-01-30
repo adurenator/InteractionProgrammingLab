@@ -2,6 +2,7 @@ package se.kth.csc.iprog.dinnerplanner;
 
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import android.app.Application;
+import android.webkit.WebView.FindListener;
 
 public class DinnerPlannerApplication extends Application {
 	
@@ -12,7 +13,7 @@ public class DinnerPlannerApplication extends Application {
 	}
 
 	public void setModel(DinnerModel model) {
-		this.model = model;
+		this.model = model
 	}
 
 
