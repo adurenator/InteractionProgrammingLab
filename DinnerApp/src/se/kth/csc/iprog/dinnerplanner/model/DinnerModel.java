@@ -3,26 +3,17 @@ package se.kth.csc.iprog.dinnerplanner.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class DinnerModel {
+public class DinnerModel implements IDinnerModel {
 	
-
 	Set<Dish> dishes = new HashSet<Dish>();
-	
-	/**
-	 * TODO: For Lab2 you need to implement the IDinnerModel interface.
-	 * When you do this you will have all the needed fields and methods
-	 * for the dinner planner (number of guests, selected dishes, etc.). 
-	 */
-	
+	Set<Dish> menu = new HashSet<Dish>();
+	int numberOfGuests;
 	
 	/**
 	 * The constructor of the overall model. Set the default values here
 	 */
-	public DinnerModel(){
-		
-		
-		
-		
+	public DinnerModel() {
+
 		//Adding some example data, you can add more
 		Dish dish1 = new Dish("French toast",Dish.STARTER,"toast.jpg","In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.");
 		Ingredient dish1ing1 = new Ingredient("eggs",0.5,"",1);
@@ -62,11 +53,10 @@ public class DinnerModel {
 		dish2.addIngredient(dish2ing11);
 		dishes.add(dish2);
 		
-		
 	}
 	
 	/**
-	 * Returns the set of dishes of specific type. (1 = starter, 2 = main, 3 = desert).
+	 * Returns the set of all dishes.
 	 */
 	public Set<Dish> getDishes(){
 		return dishes;
@@ -98,7 +88,56 @@ public class DinnerModel {
 		}
 		return result;
 	}
-	
-	
+
+	@Override
+	public int getNumberOfGuests() {
+		return numberOfGuests;
+	}
+
+	@Override
+	public void setNumberOfGuests(int numberOfGuests) {
+		this.numberOfGuests = numberOfGuests;
+	}
+
+	@Override
+	public Dish getSelectedDish(int type) {
+		for(Dish d : menu) {
+			if(d.getType() == type) {
+				return d;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Set<Dish> getFullMenu() {
+		return menu;
+	}
+
+	@Override
+	public Set<Ingredient> getAllIngredients() {
+		Set<Ingredient> allIngredients = new HashSet<Ingredient>();
+		Set<Ingredient> ingredients;
+		for(Dish d : menu) {
+			ingredients = d.getIngredients();
+			for(Ingredient i : ingredients) {
+				allIngredients.add(i);
+			}
+		}
+		return allIngredients;
+	}
+
+	@Override
+	public float getTotalMenuPrice() {
+		int totalPrice = 0;
+		Set<Ingredient> ingredients;
+		for(Dish d : menu) {
+			ingredients = d.getIngredients();
+			for(Ingredient i : ingredients) {
+				totalPrice += i.getPrice();
+			}
+		}
+		return totalPrice;
+	}
 
 }
