@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="adur_back"> Back </string>
+    <string name="adur_next"> Next </string>
+    <string name="adur_initial_no_guests"> 0 </string>
+    <string name="adur_inital_prize"> 0.00 SEK </string>
+    <string name="adur_static_option1"> Option 1 </string>
+    <string name="adur_static_option2"> Option 2 </string>
+    <string name="adur_static_option3"> Option 3 </string>
+    <string name="adur_initial_title"> Custom Title </string>
+    
+    <string name="adur_guests_img_description">  </string>
+    <string name="adur_summary_img_description">  </string>
+    
+</resources>
