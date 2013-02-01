@@ -5,62 +5,9 @@
     android:orientation="vertical">
     
     <!-- Header -->
-    <RelativeLayout
-        android:id="@+id/dish_list_patter_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp">
-        
-        <!-- Guests icon + #guests indicator -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:gravity="left"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp">
-            
-            <ImageView
-                android:src="@drawable/guests2"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/adur_guests_img_description"/>
-            
-            <TextView
-                android:text="@string/adur_initial_no_guests"
-                android:lines="1"
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"/>
-            
-        </LinearLayout>
-        
-        <!-- Sumary + prize indicators -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp">
-            
-            <ImageView
-                android:src="@drawable/summary6"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/adur_summary_img_description"/>
-            
-            <TextView
-                android:text="@string/adur_inital_prize"
-                android:lines="1"
- 				android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"/>
-            
-        </LinearLayout>
-        
-    </RelativeLayout>
+   <include
+        layout="@layout/header"
+        android:id="@+id/header"/>
     
     <TextView
         android:id="@+id/dish_list_pattern_title"
@@ -68,7 +15,7 @@
         android:layout_height="wrap_content"
         android:textSize="40sp"
         android:text="@string/adur_initial_title"
-        android:layout_below="@id/dish_list_patter_header"
+        android:layout_below="@id/header"
         android:layout_marginTop="5dp"/>
     
     <!-- This is supposed to be a dynamic list. For the 2nd lab it will be a simple 3 option chooser -->
@@ -103,32 +50,8 @@
     </RadioGroup>
     
     <!-- back and forward buttons -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp">
-        
-        <!-- back button -->
-        <Button
-            android:id="@+id/dish_list_pattern_back"
-            android:text="@string/adur_back"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="10dp"
-            android:layout_alignParentLeft="true"/>
-        
-        <!-- forward button -->
-        <Button
-            android:id="@+id/dish_list_pattern_next"
-            android:text="@string/adur_next"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginRight="10dp"
-            android:layout_alignParentRight="true"/>
-        
-    </RelativeLayout>
+    <include
+        layout="@layout/footer"
+        android:id="@+id/footer" />
 
 </RelativeLayout>

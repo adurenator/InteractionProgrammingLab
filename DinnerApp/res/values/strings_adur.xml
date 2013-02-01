@@ -7,10 +7,17 @@
     <string name="adur_inital_prize"> 0.00 SEK </string>
     <string name="adur_static_option1"> Option 1 </string>
     <string name="adur_static_option2"> Option 2 </string>
-    <string name="adur_static_option3"> Option 3 </string>
+    <string name="adur_static_option3"> Option 3 and so on</string>
     <string name="adur_initial_title"> Custom Title </string>
+    <string name="adur_initial_title2"> Shrimp cocktail </string>
     
     <string name="adur_guests_img_description">  </string>
     <string name="adur_summary_img_description">  </string>
+    
+    <string name="adur_ingredients">
+        1 kg shrimps\n1 advocado\n1 onion\n100g butter\nxxx\nxxx\nxxx\nxxx\nxxx\nxxx\nxxx\nxxx
+    </string>
+    <string name="prepare_instr">Here is some text on how to prepare a shrimp cocktail bla bla bla bla bla
+                                 and more and more text.</string>
     
 </resources>
