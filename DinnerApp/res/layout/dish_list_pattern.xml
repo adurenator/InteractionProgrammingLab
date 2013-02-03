@@ -13,13 +13,13 @@
         android:id="@+id/dish_list_pattern_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:text="@string/adur_initial_title"
         android:layout_below="@id/header"
         android:layout_marginTop="5dp"/>
     
     <!-- This is supposed to be a dynamic list. For the 2nd lab it will be a simple 3 option chooser -->
-    <RadioGroup
+    <!-- <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -47,7 +47,17 @@
             android:paddingLeft="35dp"
             android:drawableLeft="@drawable/guests3"/>
         
-    </RadioGroup>
+    </RadioGroup> -->
+    <ListView
+        android:id="@+id/dish_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dish_list_pattern_title"
+        android:layout_above="@id/footer"
+        android:choiceMode="singleChoice"
+        android:saveEnabled="true">
+        
+    </ListView>
     
     <!-- back and forward buttons -->
     <include

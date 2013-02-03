@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight">
+    
+    <!-- Check -->
+    <RadioButton
+        android:id="@+id/row_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:clickable="false"/>
+    
+    <!-- Dish image -->
+    <ImageView
+        android:id="@+id/row_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/crossed"
+        android:layout_toRightOf="@id/row_radio"
+        android:layout_centerVertical="true"
+        android:clickable="false"/>
+    
+    <!--  <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/row_image"
+        android:layout_centerVertical="true"> -->
+	    
+	    <!-- Dish name -->
+	    <TextView
+	        android:id="@+id/row_title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="20sp"
+	        android:singleLine="true"
+	        android:layout_toRightOf="@id/row_image"
+        	android:layout_centerVertical="true"
+        	android:clickable="false"/>
+	    
+	    <!-- Dish description -->
+	    <!-- <TextView
+	        android:id="@+id/row_description"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="8sp"/> -->
+        
+    <!-- </LinearLayout> -->
+    
+</RelativeLayout>
