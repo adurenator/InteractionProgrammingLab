@@ -4,9 +4,7 @@ import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
 import android.view.Menu;
-import android.view.ViewGroup;
 
 public class MainActivity extends Activity {
 

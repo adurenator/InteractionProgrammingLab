@@ -53,6 +53,12 @@ public class DinnerModel implements IDinnerModel {
 		dish2.addIngredient(dish2ing11);
 		dishes.add(dish2);
 		
+		// Add two dishes to the menu
+		menu.add(dish1);
+		menu.add(dish2);
+		
+		// Add some guests to the party
+		setNumberOfGuests(4);
 	}
 	
 	/**
@@ -129,7 +135,7 @@ public class DinnerModel implements IDinnerModel {
 
 	@Override
 	public float getTotalMenuPrice() {
-		int totalPrice = 0;
+		float totalPrice = 0;
 		Set<Ingredient> ingredients;
 		for(Dish d : menu) {
 			ingredients = d.getIngredients();
@@ -137,6 +143,10 @@ public class DinnerModel implements IDinnerModel {
 				totalPrice += i.getPrice();
 			}
 		}
+		// Multiply by the number of guests
+		totalPrice *= numberOfGuests;
+		// Round of the price to two decimals
+		totalPrice = Math.round(totalPrice * 100) / 100;
 		return totalPrice;
 	}
 
