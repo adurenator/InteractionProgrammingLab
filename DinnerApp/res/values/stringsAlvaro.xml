@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="start_screen_tittle">The dinner app</string>
+    <string name="start_screen_description">The ultimate application for\nplanning your dinnerparty! </string>
+    <string name="start_screen_button_text">Create new dinner</string>
+    <string name="start_screen_image_description">Imagen decorativa de la pantalla principal</string>
+    <string name="start_screen_image_button_description"></string>
+    <string name="guest_selection_title">Guests</string>
+    <string name="guest_selection_entering_number">Enter number of guests</string>
+    <string name="guest_selection_button_text">Enter number of guests</string>
+    <string name="guest_selection_image_button_description"></string>
+</resources>
