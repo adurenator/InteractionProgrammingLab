@@ -50,7 +50,8 @@
 		            android:layout_height="80dp"
 		            android:src="@drawable/crossed"
 		            android:layout_alignParentRight="true"
-		            android:layout_marginRight="10dp"/>
+		            android:layout_marginRight="10dp"
+		            android:contentDescription="@string/adur_guests_img_description"/>
 		        
 		    </RelativeLayout>
 		    
