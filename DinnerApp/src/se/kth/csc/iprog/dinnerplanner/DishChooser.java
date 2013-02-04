@@ -25,8 +25,8 @@ public class DishChooser extends Activity
 	private DinnerModel model;
 	private Set<Dish> list;
 	
-	private TextView g;
-	private TextView p;
+	//private TextView g;
+	//private TextView p;
 	private TextView t;
 	
 	private Button s;
@@ -52,8 +52,8 @@ public class DishChooser extends Activity
 	{
 		model = ((DinnerPlannerApplication) this.getApplication()).getModel();
 		
-		g = (TextView) findViewById(R.id.guests_number);
-		p = (TextView) findViewById(R.id.total_price);
+		//g = (TextView) findViewById(R.id.guests_number);
+		//p = (TextView) findViewById(R.id.total_price);
 		t = (TextView) findViewById(R.id.dish_list_pattern_title);
 		
 		s = (Button) findViewById(R.id.button1);
@@ -64,8 +64,10 @@ public class DishChooser extends Activity
 		b.setOnClickListener(backListener);
 		
 		// initial setting
-		g.setText(Integer.toString(model.getNumberOfGuests()));
-		p.setText(Float.toString(model.getTotalMenuPrice()));
+		//g.setText(Integer.toString(model.getNumberOfGuests()));
+		//p.setText(Float.toString(model.getTotalMenuPrice()));
+		HeaderFooterController hfc = new HeaderFooterController(this, model);
+		hfc.updateHeaderFields();
 		
 	    lv = (ListView) findViewById(R.id.dish_list);
 	    lv.setOnItemClickListener(itemClickListener);

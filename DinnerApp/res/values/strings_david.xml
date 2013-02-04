@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_ingredients">Ingredients</string>
+    <string name="title_activity_ingredients2">Ingredients2</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="quantity">Quantity</string>
+    <string name="cost">Cost</string>
+    <string name="back_button">Back</string>
+    <string name="next_button">Next</string>
+    <string name="summary_button">Summary</string>
+    <string name="currency">kr</string>
+
+</resources>

@@ -16,6 +16,8 @@ import android.widget.TextView;
 public class DescriptionPopup extends Activity
 {
 	
+	private DinnerModel model;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -36,6 +38,10 @@ public class DescriptionPopup extends Activity
 	
 	private void initLayout()
 	{
+		model = ((DinnerPlannerApplication) this.getApplication()).getModel();
+		HeaderFooterController hfc = new HeaderFooterController(this, model);
+		hfc.updateHeaderFields();
+		
 		TextView title        = (TextView) findViewById(R.id.description_popup_title);
 		TextView ingredients  = (TextView) findViewById(R.id.description_popup_ingredients);
 		TextView instructions = (TextView) findViewById(R.id.description_popup_instructions);
