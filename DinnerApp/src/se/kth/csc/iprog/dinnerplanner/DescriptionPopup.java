@@ -39,7 +39,7 @@ public class DescriptionPopup extends Activity
 	private void initLayout()
 	{
 		model = ((DinnerPlannerApplication) this.getApplication()).getModel();
-		HeaderFooterController hfc = new HeaderFooterController(this, model);
+		HeaderView hfc = new HeaderView(this, model);
 		hfc.updateHeaderFields();
 		
 		TextView title        = (TextView) findViewById(R.id.description_popup_title);

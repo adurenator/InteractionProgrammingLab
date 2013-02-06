@@ -66,7 +66,7 @@ public class DishChooser extends Activity
 		// initial setting
 		//g.setText(Integer.toString(model.getNumberOfGuests()));
 		//p.setText(Float.toString(model.getTotalMenuPrice()));
-		HeaderFooterController hfc = new HeaderFooterController(this, model);
+		HeaderView hfc = new HeaderView(this, model);
 		hfc.updateHeaderFields();
 		
 	    lv = (ListView) findViewById(R.id.dish_list);
@@ -148,4 +148,5 @@ public class DishChooser extends Activity
 			Toast.makeText(getApplicationContext(), ("Clicked on element no " + position), Toast.LENGTH_SHORT).show();
 		}
 	};
+	
 }

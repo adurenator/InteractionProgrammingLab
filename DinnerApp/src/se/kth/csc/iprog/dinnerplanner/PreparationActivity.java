@@ -22,7 +22,7 @@ public class PreparationActivity extends Activity {
 		exp.setAdapter(new ExpandableMenuAdapter(this, model));
 		
 		// Update the header fields
-		HeaderFooterController hfc = new HeaderFooterController(this, model);
+		HeaderView hfc = new HeaderView(this, model);
 		hfc.updateHeaderFields();
 	}
 

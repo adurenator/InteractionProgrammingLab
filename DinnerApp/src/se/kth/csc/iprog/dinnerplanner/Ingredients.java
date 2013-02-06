@@ -24,7 +24,7 @@ public class Ingredients extends Activity {
 		TextView guestsN = (TextView) findViewById(R.id.guests_number);
 		guestsN.setText(""+model.getNumberOfGuests());*/
 		
-		HeaderFooterController hfc = new HeaderFooterController(this, model);
+		HeaderView hfc = new HeaderView(this, model);
 		hfc.updateHeaderFields();
 		
 		//Get all the table layout inside the ScrollView
