@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.widget.TextView;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 
-public class HeaderFooterController {
+public class HeaderView {
 	
 	private Activity activity;
 	private DinnerModel model;
 	
-	public HeaderFooterController(Activity activity, DinnerModel model) {
+	public HeaderView(Activity activity, DinnerModel model) {
 		this.activity = activity;
 		this.model = model;
 	}
