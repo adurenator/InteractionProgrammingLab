@@ -20,6 +20,7 @@ public class FooterController implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
+		
 		if(v.getId()==R.id.back_button){
 			fi.performBack();
 		} else if(v.getId()==R.id.next_button){
