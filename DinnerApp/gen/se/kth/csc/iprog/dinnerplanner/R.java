@@ -59,12 +59,12 @@ public final class R {
         public static final int expandable_list=0x7f080017;
         public static final int footer=0x7f080016;
         public static final int footer_back=0x7f080006;
+        public static final int guestSelectionConfirmButton=0x7f080004;
         public static final int guestSelectionEnteringNumberField=0x7f080003;
         public static final int guestSelectionEnteringNumberLabel=0x7f080002;
         public static final int guestSelectionTitle=0x7f080001;
         public static final int guests_number=0x7f080026;
         public static final int header=0x7f080005;
-        public static final int imageButton1=0x7f080004;
         public static final int ingredients_table=0x7f080009;
         public static final int layout_ingredients_list=0x7f080008;
         public static final int list_item_parent=0x7f08002c;
@@ -77,8 +77,8 @@ public final class R {
         public static final int row_radio=0x7f08002d;
         public static final int row_title=0x7f08002f;
         public static final int scroll_ingredients_list=0x7f080007;
-        public static final int start_screen_button=0x7f08001c;
-        public static final int start_screen_image=0x7f08001a;
+        public static final int startScreenButton=0x7f08001c;
+        public static final int startScreenImage=0x7f08001a;
         public static final int total_price=0x7f080028;
         public static final int xx=0x7f080015;
     }
