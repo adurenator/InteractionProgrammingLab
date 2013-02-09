@@ -6,11 +6,11 @@ import views.StartScreen_View;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.*;
 
 public class MainActivity extends Activity {
 
 	@Override
+	@SuppressWarnings("unused")
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_start_screen);

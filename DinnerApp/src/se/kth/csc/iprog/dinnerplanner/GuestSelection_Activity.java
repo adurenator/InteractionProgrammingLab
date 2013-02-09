@@ -1,16 +1,20 @@
 package se.kth.csc.iprog.dinnerplanner;
 
-import controllers.*;
-import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
-import views.*;
+
+
+
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+
+import views.GuestSelection_View;
+import controllers.GuestSelection_Controller;
+import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 
 public class GuestSelection_Activity extends Activity {
 
 	@Override
+	@SuppressWarnings("unused")
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_guest_selection);

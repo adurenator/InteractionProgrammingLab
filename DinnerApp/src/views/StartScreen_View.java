@@ -1,9 +1,9 @@
 package views;
 
-import se.kth.csc.iprog.dinnerplanner.R;
 import android.widget.*;
 import android.app.Activity;
 
+import se.kth.csc.iprog.dinnerplanner.R;
 
 public class StartScreen_View {
 	
@@ -15,6 +15,7 @@ public class StartScreen_View {
 	public ImageView startScreenImage;
 	public ImageButton newDinnerButton;
 	
+	@SuppressWarnings("unused")
 	public StartScreen_View(Activity newActivity){
 		
 		// Setting the view and the widgets.

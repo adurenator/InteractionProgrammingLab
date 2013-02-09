@@ -5,7 +5,6 @@ import se.kth.csc.iprog.dinnerplanner.PreparationActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.sax.StartElementListener;
 import android.util.Log;
 
 public class SuperController
