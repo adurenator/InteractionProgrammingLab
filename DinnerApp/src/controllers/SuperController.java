@@ -2,23 +2,19 @@ package controllers;
 
 import android.app.Activity;
 
-public class SuperController {
-	
-	public SuperController()
-	{
-		
-	}
+public class SuperController
+{
 	
 	// This method is the one to be called in any action button
 	// that performs a "positive" action, like "accept/next/OK/.."
-	public void performPositive(Activity a)
+	public static void performPositive(Activity a)
 	{
 		
 	}
 	
 	// This method is the one to be called in any action button
 	// that performs a "negative" action, like "decline/back/cancel/.."
-	public void performNegative(Activity a)
+	public static void performNegative(Activity a)
 	{
 		
 	}
