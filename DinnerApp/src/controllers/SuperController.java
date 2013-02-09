@@ -1,9 +1,9 @@
 package controllers;
 
+import se.kth.csc.iprog.dinnerplanner.DescriptionPopup;
 import se.kth.csc.iprog.dinnerplanner.DishChooser;
 import se.kth.csc.iprog.dinnerplanner.GuestSelection_Activity;
 import se.kth.csc.iprog.dinnerplanner.Ingredients;
-import se.kth.csc.iprog.dinnerplanner.MainActivity;
 import se.kth.csc.iprog.dinnerplanner.PreparationActivity;
 import android.app.Activity;
 import android.content.Context;
@@ -17,7 +17,8 @@ public class SuperController
 	 * NOTE:
 	 * Even if it seem that the implementation has a lot
 	 * of replicated code, leave it as it is. 
-	 * 
+	 * Depending on whether the activity to call is a popup or not
+	 * the super-controllers behavior is different.
 	 */
 	
 	// This method is the one to be called in any action button
@@ -26,71 +27,97 @@ public class SuperController
 	{
 		Intent i = null;
 		Context c = a.getApplicationContext();
-		String name = a.getTitle().toString();
+		String name = a.getLocalClassName();
 		Log.v("DinnerApp", "Activity title: " + name);
 		
-		if (name == "MainActivity") {
+		if (name.equals("MainActivity")) {
+			Log.v("DinnerApp", "Entered 1");
 			a.finish();
 			i = new Intent(a.getApplicationContext(), GuestSelection_Activity.class);
-			c.startActivity(i);
+			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		}
-		else if (name == "GuestSelection_Activity") {
+		
+		else if (name.equals("GuestSelection_Activity")) {
+			Log.v("DinnerApp", "Entered 2");
 			a.finish();
 			i = new Intent(a.getApplicationContext(), DishChooser.class);
-			c.startActivity(i);
+			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			i.putExtra("init", 1);
 		}
-		else if (name == "DishChooser") {
-			if ((String)parameter == "description") {
-				
+		
+		else if (name.equals("DishChooser")) {
+			Log.v("DinnerApp", "Entered 3");
+			
+			// shows description popup
+			if ((String) parameter == "description") {
+				i = new Intent(a.getApplicationContext(), DescriptionPopup.class);
+				i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			}
-			else if ((String)parameter == "ingredients") {
-				
+			
+			// shows ingredients popup
+			else if ((String) parameter == "ingredients") {
+				i = new Intent(a.getApplicationContext(), Ingredients.class);
+				i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			}
+			
+			// shows preparation activity
 			else {
 				a.finish();
 				i = new Intent(a.getApplicationContext(), PreparationActivity.class);
-				c.startActivity(i);
+				i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			}
 		}
-		else if (name == "DescriptionPopup") {
-			
-		}
-		else if (name == "Ingredients") {
-			
-		}
-		else if (name == "PreparationActivity") {
-			a.finish();
-			i = new Intent(a.getApplicationContext(), DishChooser.class);
-			i.putExtra("init", 3);
-			c.startActivity(i);
-		}
+		
+		// DescriptionPopup activity has not positive event, its only "back"
+		//else if (name == "DescriptionPopup") { }
+		
+		// Ingredients activity has not positive event, its only "back"
+		//else if (name == "Ingredients") { }
+		
+		// Preparation activity has not positive event, its only "back"
+		//else if (name == "PreparationActivity") { }
+		
+		if (i != null) c.startActivity(i);
 	}
 	
 	// This method is the one to be called in any action button
 	// that performs a "negative" action, like "decline/back/cancel/.."
 	public static void performNegative(Activity a, Object parameter)
 	{
-		String name = a.getTitle().toString();
+		Intent i = null;
+		Context c = a.getApplicationContext();
+		String name = a.getLocalClassName();
 		Log.v("DinnerApp", "Activity title: " + name);
 		
-		if (name == "MainActivity") {
-			
+		// MainActivity activity has not negative event, its only "next"
+		//if (name.equals("MainActivity")) { }
+		
+		// GuestSelection_Activity activity has not negative event, its only "next"
+		//else if (name.equals("GuestSelection_Activity")) { }
+		
+		if (name.equals("DishChooser")) {
+			a.finish();
+			i = new Intent(a.getApplicationContext(), GuestSelection_Activity.class);
+			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		}
-		else if (name == "GuestSelection_Activity") {
-			
+		
+		else if (name.equals("DescriptionPopup")) {
+			a.finish();
 		}
-		else if (name == "DishChooser") {
-			
+		
+		else if (name.equals("Ingredients")) {
+			a.finish();
 		}
-		else if (name == "DescriptionPopup") {
-			
+		
+		else if (name.equals("PreparationActivity")) {
+			Log.v("DinnerApp", "Entered 6");
+			a.finish();
+			i = new Intent(a.getApplicationContext(), DishChooser.class);
+			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			i.putExtra("init", 3);
 		}
-		else if (name == "Ingredients") {
-			
-		}
-		else if (name == "PreparationActivity") {
-			
-		}
+		
+		if (i != null) c.startActivity(i);
 	}
 
 }
