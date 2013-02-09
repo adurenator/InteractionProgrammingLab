@@ -126,6 +126,7 @@ public final class R {
         public static final int ingredients=0x7f05001b;
         public static final int menu_settings=0x7f050002;
         public static final int next_button=0x7f05001f;
+        public static final int preparation_title=0x7f050022;
         public static final int prepare_instr=0x7f050018;
         public static final int quantity=0x7f05001c;
         public static final int start_screen_button_text=0x7f050005;
