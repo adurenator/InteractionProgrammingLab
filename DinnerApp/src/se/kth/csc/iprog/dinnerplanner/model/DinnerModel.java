@@ -6,6 +6,9 @@ import java.util.Set;
 
 public class DinnerModel extends Observable implements IDinnerModel {
 	
+	// The names of the different dinner types.
+	final String[] DINNER_TYPE_NAMES = { "Starter", "Main", "Desert" };
+	
 	Set<Dish> dishes = new HashSet<Dish>();
 	Set<Dish> menu = new HashSet<Dish>();
 	int numberOfGuests;
@@ -149,6 +152,35 @@ public class DinnerModel extends Observable implements IDinnerModel {
 		// Round of the price to two decimals
 		totalPrice = Math.round(totalPrice * 100) / 100;
 		return totalPrice;
+	}
+	
+	/**
+	 * Returns the name of the specified dinner type.
+	 * @param type the dinner type.
+	 * @return the corresponding dinner type string.
+	 */
+	public String getDinnerTypeName(int type) {
+		if(type > 0 && type <= DINNER_TYPE_NAMES.length) {
+			return DINNER_TYPE_NAMES[type - 1];
+		}
+		return "";
+	}
+	
+	/**
+	 * Returns the number of different dinner types.
+	 * @return the number of different dinner types.
+	 */
+	public int getDinnerTypesCount() {
+		return DINNER_TYPE_NAMES.length;
+	}
+	
+	/**
+	 * ONLY FOR DEBUGGING.
+	 * TODO REMOVE.
+	 */
+	public void requestNotification() {
+		setChanged();
+		notifyObservers();
 	}
 
 }
