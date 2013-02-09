@@ -5,7 +5,7 @@
     android:paddingLeft="40sp" android:paddingRight="10sp"
     android:paddingTop="10sp" android:paddingBottom="10sp"
     android:background="@color/preparation_list_grey"
-    android:groupIndicator="@null"
+    android:drawable="@android:color/transparent"
     android:orientation="horizontal" >
 
     <TextView

@@ -16,13 +16,22 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/footer"
-        android:layout_below="@id/header" >
+        android:layout_below="@id/header"
+        android:orientation="vertical" >
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/preparation_list_white"
+            android:padding="10sp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="@string/preparation_title" />
             
         <ExpandableListView
             android:id="@+id/expandable_list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
-            
         </ExpandableListView>
         
   	 </LinearLayout>

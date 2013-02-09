@@ -1,12 +1,19 @@
 package ExtendedClasses;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.Set;
+
 import se.kth.csc.iprog.dinnerplanner.R;
-import se.kth.csc.iprog.dinnerplanner.R.id;
-import se.kth.csc.iprog.dinnerplanner.R.layout;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,17 +21,19 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
-	
-	// The names of the different dinner types.
-	final String[] DINNER_TYPE_NAMES = { "Starter", "Main", "Desert" };
+public class ExpandableMenuAdapter extends BaseExpandableListAdapter implements Observer {
 	
 	private Context context;
-	private DinnerModel model;
+	
+	private String[] dinnerTypes;
+	private ArrayList<Set<Dish>> dishes;
 	
 	public ExpandableMenuAdapter(Context context, DinnerModel model) {
 		this.context = context;
-		this.model = model;
+		dishes = new ArrayList<Set<Dish>>(model.getDinnerTypesCount());
+		dinnerTypes = new String[model.getDinnerTypesCount()];
+		
+		model.addObserver(this);
 	}
 	
 	@Override
@@ -46,9 +55,10 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
 			convertView = inflater.inflate(R.layout.list_item_child, null);
 		}
 		
-		Dish dish = (Dish) model.getSelectedDish(groupPosition + 1);
+		Dish dish = (Dish) dishes.get(groupPosition).toArray()[childPosition];
 		
 		if(dish != null) {
+			// Display image of dish
 			ImageView imageView = (ImageView) convertView.findViewById(R.id.preparation_dish_image);
 			Resources resource = context.getResources();
 			int id = context.getResources().getIdentifier(
@@ -56,6 +66,7 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
 					"drawable", context.getPackageName());
 			imageView.setImageDrawable(resource.getDrawable(id));
 			
+			// Display information about the dish
 			TextView text;
 			text = (TextView) convertView.findViewById(R.id.preparation_dish_name);
 			text.setText(dish.getName());
@@ -68,11 +79,7 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public int getChildrenCount(int groupPosition) {
-		if(model.getSelectedDish(groupPosition + 1) != null) {
-			// There is only one dish per dinner type.
-			return 1;
-		}
-		return 0;
+		return dishes.get(groupPosition).size();
 	}
 
 	@Override
@@ -82,7 +89,7 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public int getGroupCount() {
-		return DINNER_TYPE_NAMES.length;
+		return dinnerTypes.length;
 	}
 
 	@Override
@@ -95,9 +102,9 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
 			View convertView, ViewGroup parent) {
 		
 		LayoutInflater inflater =  (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		String text = DINNER_TYPE_NAMES[groupPosition];
+		String text = dinnerTypes[groupPosition];
 		
-		if(model.getSelectedDish(groupPosition + 1) != null) {
+		if(dishes.get(groupPosition).size() > 0) {
 			convertView = inflater.inflate(R.layout.list_item_group, null);
 		} else {
 			convertView = inflater.inflate(R.layout.list_item_group_empty, null);
@@ -112,19 +119,35 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public boolean hasStableIds() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isChildSelectable(int groupPosition, int childPosition) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	
 	@Override
 	public boolean areAllItemsEnabled() {
 		return false;
+	}
+
+	@Override
+	public void update(Observable observable, Object data) {
+		DinnerModel model = (DinnerModel) observable;
+		dishes = new ArrayList<Set<Dish>>(model.getDinnerTypesCount());
+		dinnerTypes = new String[model.getDinnerTypesCount()];
+		
+		Set<Dish> menu = model.getFullMenu();
+		
+		for(int i = 0; i < dinnerTypes.length; i++) {
+			dishes.add(new HashSet<Dish>());
+			dinnerTypes[i] = model.getDinnerTypeName(i + 1);
+		}
+		
+		for(Dish d : menu) {
+			dishes.get(d.getType() - 1).add(d);
+		}
 	}
 
 }
