@@ -24,7 +24,7 @@
     </TextView>
 
     <ImageView
-        android:id="@+id/start_screen_image"
+        android:id="@+id/startScreenImage"
         
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
     </TextView>
 
     <ImageButton
-        android:id="@+id/start_screen_button"
+        android:id="@+id/startScreenButton"
         
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
