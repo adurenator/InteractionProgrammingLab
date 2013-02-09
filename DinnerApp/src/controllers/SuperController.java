@@ -1,11 +1,11 @@
 package controllers;
 
 import se.kth.csc.iprog.dinnerplanner.DishChooser;
+import se.kth.csc.iprog.dinnerplanner.GuestSelection_Activity;
 import se.kth.csc.iprog.dinnerplanner.PreparationActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.sax.StartElementListener;
 import android.util.Log;
 
 public class SuperController
@@ -22,7 +22,7 @@ public class SuperController
 		Log.v("DinnerApp", "Activity title: " + name);
 		
 		if (name == "MainActivity") {
-			//i = new Intent(a.getApplicationContext(), );
+			i = new Intent(a.getApplicationContext(), GuestSelection_Activity.class);
 		}
 		else if (name == "GuestSelection_Activity") {
 			i = new Intent(a.getApplicationContext(), DishChooser.class);
