@@ -21,8 +21,9 @@ public class DishChooserView implements Observer {
 	TextView t;
 	
 	private Set<Dish> list;
+	private ArrayList<Dish> list1;
 	private ImageArrayAdapter aa;
-	private int type;
+	int type;
 	
 	public DishChooserView(Activity activity, DinnerModel model, int initialScreen)
 	{
@@ -49,9 +50,9 @@ public class DishChooserView implements Observer {
 	
 	private void setDishInfo()
 	{
-		list = model.getDishesOfType(type);
-		ArrayList<Dish> list1 = formatDishes();
-		aa = new ImageArrayAdapter(activity.getApplicationContext(), android.R.layout.simple_list_item_single_choice, list1);
+		list  = model.getDishesOfType(type);
+		list1 = formatDishes();
+		aa    = new ImageArrayAdapter(activity.getApplicationContext(), android.R.layout.simple_list_item_single_choice, list1);
 		
 		switch (type) {
 			case 1:

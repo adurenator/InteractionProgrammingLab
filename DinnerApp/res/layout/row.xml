@@ -5,7 +5,7 @@
     android:descendantFocusability="blocksDescendants">
     
     <!-- Check -->
-    <CheckBox
+    <RadioButton
         android:id="@+id/row_radio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

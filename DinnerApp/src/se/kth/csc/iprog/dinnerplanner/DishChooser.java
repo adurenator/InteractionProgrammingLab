@@ -36,7 +36,7 @@ public class DishChooser extends Activity implements FooterInterface
 			// if the view did not perform an internal view change
 			// means that the activity must be switched, so the
 			// super-controller is called for that purpose
-			SuperController.performPositive(this, null);
+			SuperController.changeActivity(this, PreparationActivity.class, false, null);
 		}
 	}
 
@@ -47,7 +47,7 @@ public class DishChooser extends Activity implements FooterInterface
 			// if the view did not perform an internal view change
 			// means that the activity must be switched, so the
 			// super-controller is called for that purpose
-			SuperController.performNegative(this, null);
+			SuperController.changeActivity(this, GuestSelection_Activity.class, false, null);
 		}
 	}
 	

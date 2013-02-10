@@ -28,10 +28,10 @@ public class HeaderController implements OnClickListener{
 		
 		switch(v.getId()) {
 		case R.id.guests_button:
-			SuperController.changeActivity(activity, GuestSelection_Activity.class, false);
+			SuperController.changeActivity(activity, GuestSelection_Activity.class, false, null);
 			break;
 		case R.id.summary_button:
-			SuperController.changeActivity(activity, PreparationActivity.class, false);
+			SuperController.changeActivity(activity, PreparationActivity.class, false, null);
 			break;
 		default:
 			break;

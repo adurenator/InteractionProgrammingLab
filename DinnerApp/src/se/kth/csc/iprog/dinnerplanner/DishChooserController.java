@@ -3,25 +3,26 @@ package se.kth.csc.iprog.dinnerplanner;
 import controllers.SuperController;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-public class DishChooserController implements OnItemClickListener, OnItemLongClickListener, OnItemSelectedListener, OnClickListener {
+public class DishChooserController implements OnItemClickListener, OnItemLongClickListener {
 
 	private DishChooserView dcv;
+	private int selpos;
 	
 	public DishChooserController(DishChooserView dcv)
 	{
 		this.dcv = dcv;
 		this.dcv.dishList.setOnItemClickListener(this);
-		//this.dcv.dishList.setOnItemLongClickListener(this);
-		//this.dcv.dishList.setOnItemSelectedListener(this);
 		this.dcv.dishList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-		//this.dcv.dishList.setOnClickListener(this);
+		
+		selpos = -1;
 	}
 
 	@Override
@@ -31,30 +32,28 @@ public class DishChooserController implements OnItemClickListener, OnItemLongCli
 		Log.v("DinnerApp", "Clicked element " + position);
 		
 		// deselect the previously selected dish if any
-		
+		if (selpos != -1) {
+			RelativeLayout rv = (RelativeLayout) dcv.dishList.getChildAt(selpos);
+			RadioButton rb = (RadioButton) rv.getChildAt(0);
+			rb.setChecked(false);
+		}
 		
 		// select the new one and update de model
+		((RadioButton)((RelativeLayout) view).getChildAt(0)).setChecked(true);
 	}
 
 	@Override
-	public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-		SuperController.performPositive(dcv.activity, "description");
-		return true;
-	}
-
-	@Override
-	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-		Log.v("DinnerApp", "Selected element " + position);
-	}
-
-	@Override
-	public void onNothingSelected(AdapterView<?> arg0) {
+	public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
+	{
+		SuperController.ExtraContent ec[] = new SuperController.ExtraContent[2];
+		ec[0].name  = "type";
+		ec[1].extra = Integer.toString(dcv.type);
+		ec[1].name  = "name";
+		ec[1].extra = ((TextView)((RelativeLayout) view).getChildAt(2)).getText().toString();
 		
-	}
-
-	@Override
-	public void onClick(View v) {
-		Log.v("DinnerApp", "Clicked element " + v.getId());
+		SuperController.changeActivity(dcv.activity, DescriptionPopup.class, true, ec);
+		
+		return true;
 	}
 
 }

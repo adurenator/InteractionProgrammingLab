@@ -1,8 +1,6 @@
 package ExtendedClasses;
 
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -32,19 +30,8 @@ public class ImageArrayAdapter extends ArrayAdapter<Dish> {
 		
 		Dish d = l.get(position);
 		if (d != null) {
-//			CheckBox cb = (CheckBox) row.findViewById(R.id.row_radio);
-//			ImageView i1 = (ImageView) row.findViewById(R.id.row_image);
 			TextView t1 = (TextView) row.findViewById(R.id.row_title);
-			
-			//cb.setFocusable(false);
-			//i1.setFocusable(false);
-			//t1.setFocusable(false);
-			
 			t1.setText(d.getName());
-			//t2.setText(d.getDescription());
-			
-			//row.setClickable(true);
-			//row.setLongClickable(true);
 		}
 		
 		return row;

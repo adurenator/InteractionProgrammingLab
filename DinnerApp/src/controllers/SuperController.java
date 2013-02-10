@@ -130,7 +130,7 @@ public class SuperController
 	 * @param popup if true the dstAct is started as a popup, otherwise srcAct is stopped.
 	 */
 	@SuppressWarnings("rawtypes")
-	public static void changeActivity(Activity srcAct, Class dstAct, boolean popup)
+	public static void changeActivity(Activity srcAct, Class dstAct, boolean popup, ExtraContent[] extras)
 	{
 		Intent i = null;
 		Context c = srcAct.getApplicationContext();
@@ -150,7 +150,21 @@ public class SuperController
 		i = new Intent(srcAct.getApplicationContext(), dstAct);
 		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		
+		if (extras != null) addExtras(i, extras);
+		
 		if (i != null) c.startActivity(i);
 	}
+	
+	private static void addExtras(Intent i, ExtraContent[] extras)
+	{
+		for (int j = 0; j < extras.length; ++j) {
+			i.putExtra(extras[j].name, extras[j].extra);
+		}
+	}
+	
+	public class ExtraContent {
+		public String name;
+		public String extra;
+	};
 
 }
