@@ -16,7 +16,8 @@ public class DishChooserController implements OnItemClickListener {
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 	{
-		
+//		if ()
+//		dcv.model.
 	}
 
 }
