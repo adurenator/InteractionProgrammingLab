@@ -30,11 +30,18 @@
     </LinearLayout>
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10sp"
+        android:text="@string/preparation_instructions"
+        android:textStyle="bold" />
+    
+    <TextView
         android:id="@+id/preparation_dish_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10sp" android:paddingBottom="10sp"
-        android:text="A hell of a lot of text of a lot of nonsense of a lot of rubbish."
+        android:paddingTop="5sp" android:paddingBottom="10sp"
+        android:text="@string/lorem_ipsum"
         android:textSize="15sp" />
 
 </LinearLayout>

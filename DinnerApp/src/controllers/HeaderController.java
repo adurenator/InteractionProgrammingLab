@@ -1,7 +1,6 @@
 package controllers;
 
 import android.app.Activity;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import views.HeaderView;
@@ -23,9 +22,6 @@ public class HeaderController implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		
-		Log.v("DinnerApp", "View id: " + v.getId());
-		
 		switch(v.getId()) {
 		case R.id.guests_button:
 			SuperController.changeActivity(activity, GuestSelection_Activity.class, false, null);
