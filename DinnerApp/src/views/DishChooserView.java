@@ -1,10 +1,11 @@
-package se.kth.csc.iprog.dinnerplanner;
+package views;
 
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Set;
 
+import se.kth.csc.iprog.dinnerplanner.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import ExtendedClasses.ImageArrayAdapter;
@@ -14,16 +15,16 @@ import android.widget.TextView;
 
 public class DishChooserView implements Observer {
 	
-	Activity activity;
-	DinnerModel model;
+	public Activity activity;
+	public DinnerModel model;
 	
-	ListView dishList;
-	TextView t;
+	public ListView dishList;
+	public TextView t;
 	
 	private Set<Dish> list;
 	private ArrayList<Dish> list1;
 	private ImageArrayAdapter aa;
-	int type;
+	public int type;
 	
 	public DishChooserView(Activity activity, DinnerModel model, int initialScreen)
 	{

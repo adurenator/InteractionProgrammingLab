@@ -1,6 +1,7 @@
 package se.kth.csc.iprog.dinnerplanner.model;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Observable;
 import java.util.Set;
 
@@ -203,5 +204,24 @@ public class DinnerModel extends Observable implements IDinnerModel {
 	public void setDessert(Dish d)
 	{
 		
+	}
+	
+	/*****************************************************/
+	/** MISC METHODS *************************************/
+	/*****************************************************/
+	
+	public Dish getDish(int type, String name)
+	{
+		Dish ret = null;
+		
+		Set<Dish> aux = this.getDishesOfType(type);
+		Iterator<Dish> it = aux.iterator();
+		
+		while (it.hasNext()) {
+			ret = it.next();
+			if (ret.name.equals(name)) return ret;
+		}
+		
+		return null;
 	}
 }

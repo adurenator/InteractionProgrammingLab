@@ -1,13 +1,11 @@
 package views;
 
-import java.util.ArrayList;
 import java.util.Set;
 
 import android.app.Activity;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import se.kth.csc.iprog.dinnerplanner.DinnerPlannerApplication;
 import se.kth.csc.iprog.dinnerplanner.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
@@ -37,22 +35,13 @@ public class DescriptionPopupView
 		back         = (Button) a.findViewById(R.id.description_popup_back);
 		
 		// Get the dish
-		Set<Dish> sd = model.getDishesOfType(dishType);
-		ArrayList<Dish> ad = formatDishes(sd);
-		Dish d = ad.get(0);
+		Dish d = model.getDish(dishType, dishName);
 		Set<Ingredient> si = d.getIngredients();
 		
 		// Load data
 		title.setText(d.getName());
 		ingredients.setText(formatIngredients(si));
 		instructions.setText(d.getDescription());
-	}
-
-	private ArrayList<Dish> formatDishes(Set<Dish> list)
-	{
-		ArrayList<Dish> ret = new ArrayList<Dish>();
-		for (Dish d : list) { ret.add(d); }
-		return ret;
 	}
 	
 	private String formatIngredients(Set<Ingredient> list)

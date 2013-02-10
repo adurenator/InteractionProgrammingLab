@@ -1,6 +1,7 @@
-package se.kth.csc.iprog.dinnerplanner;
+package controllers;
 
-import controllers.SuperController;
+import se.kth.csc.iprog.dinnerplanner.DescriptionPopup;
+import views.DishChooserView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;

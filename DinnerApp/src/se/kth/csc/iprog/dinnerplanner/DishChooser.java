@@ -1,8 +1,10 @@
 package se.kth.csc.iprog.dinnerplanner;
 
+import controllers.DishChooserController;
 import controllers.FooterController;
 import controllers.SuperController;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+import views.DishChooserView;
 import views.FooterView;
 import Interfaces.FooterInterface;
 import android.app.Activity;
