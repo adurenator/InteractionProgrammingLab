@@ -46,11 +46,11 @@ public final class R {
         public static final int activity_guest_selection=0x7f080000;
         public static final int activity_start_screen=0x7f080018;
         public static final int back_button=0x7f080024;
-        public static final int description_popup_back=0x7f080021;
-        public static final int description_popup_image=0x7f08001f;
-        public static final int description_popup_ingredients=0x7f08001e;
-        public static final int description_popup_instructions=0x7f080020;
-        public static final int description_popup_title=0x7f08001d;
+        public static final int description_popup_back=0x7f08001d;
+        public static final int description_popup_image=0x7f080020;
+        public static final int description_popup_ingredients=0x7f08001f;
+        public static final int description_popup_instructions=0x7f080021;
+        public static final int description_popup_title=0x7f08001e;
         public static final int dinnerAppDescription=0x7f08001b;
         public static final int dinnerAppTitle=0x7f080019;
         public static final int dish_list=0x7f080023;
@@ -124,8 +124,10 @@ public final class R {
         public static final int guest_selection_title=0x7f050008;
         public static final int hello_world=0x7f050001;
         public static final int ingredients=0x7f05001b;
+        public static final int lorem_ipsum=0x7f050023;
         public static final int menu_settings=0x7f050002;
         public static final int next_button=0x7f05001f;
+        public static final int preparation_instructions=0x7f050024;
         public static final int preparation_title=0x7f050022;
         public static final int prepare_instr=0x7f050018;
         public static final int quantity=0x7f05001c;

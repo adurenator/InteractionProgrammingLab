@@ -2,10 +2,12 @@ package se.kth.csc.iprog.dinnerplanner;
 
 import controllers.DishChooserController;
 import controllers.FooterController;
+import controllers.HeaderController;
 import controllers.SuperController;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import views.DishChooserView;
 import views.FooterView;
+import views.HeaderView;
 import Interfaces.FooterInterface;
 import android.app.Activity;
 import android.os.Bundle;
@@ -29,6 +31,7 @@ public class DishChooser extends Activity implements FooterInterface
 		dcv = new DishChooserView(this, model, type);
 		new DishChooserController(dcv);
 		new FooterController(new FooterView(this), this);
+		new HeaderController(new HeaderView(this, model), this);
 	}
 
 	@Override

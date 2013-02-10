@@ -9,10 +9,21 @@
         android:layout_height="wrap_content"
         layout="@layout/header" />
     
+    <!-- BACK BUTTON -->
+    <Button
+        android:id="@+id/description_popup_back"
+        android:text="@string/adur_back"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"/>
+    
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/header"
+        android:layout_above="@id/description_popup_back"
         style="?android:attr/dialogTheme"
         android:layout_marginTop="5dp">
         
@@ -68,14 +79,6 @@
     
     </ScrollView>
     
-    <!-- BACK BUTTON -->
-    <Button
-        android:id="@+id/description_popup_back"
-        android:text="@string/adur_back"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"/>
+    
 
 </RelativeLayout>

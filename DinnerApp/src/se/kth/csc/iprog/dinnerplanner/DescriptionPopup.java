@@ -24,6 +24,7 @@ public class DescriptionPopup extends Activity
 		
 		new HeaderController(new HeaderView(this, model), this);
 		new DescriptionPopupController(new DescriptionPopupView(this, model, type, name));
+		new HeaderController(new HeaderView(this, model), this);
 	}
 	
 }
