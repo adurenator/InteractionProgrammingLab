@@ -7,35 +7,22 @@
     android:orientation="horizontal"
     android:weightSum="3" >
     
-    <LinearLayout
+    <Button
+        android:id="@+id/guests_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="5sp"
-        android:layout_weight="1" >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/guests_icon" />
-
-        <TextView
-            android:id="@+id/guests_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10sp"
-            android:textSize="25sp"
-            android:text="6" />
-        
-    </LinearLayout>
+        android:layout_weight="1"
+        android:drawableLeft="@drawable/guests_icon"
+        android:textSize="20sp"
+        android:text="6" />
 
     <Button
-        android:id="@+id/button1"
-        style="?android:attr/buttonStyleSmall"
+        android:id="@+id/summary_button"
         android:layout_width="wrap_content"
-        android:layout_height="40sp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_gravity="center"
+        android:textSize="20sp"
         android:text="Summary" />
        
     <TextView
@@ -44,7 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="5sp"
         android:layout_weight="1"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_gravity="center"
+        android:textSize="20sp"
         android:text="32,22 $" />
 
 </LinearLayout>
