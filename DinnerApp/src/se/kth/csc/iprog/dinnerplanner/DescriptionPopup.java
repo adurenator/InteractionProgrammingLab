@@ -3,9 +3,12 @@ package se.kth.csc.iprog.dinnerplanner;
 import java.util.ArrayList;
 import java.util.Set;
 
+import controllers.HeaderController;
+
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import se.kth.csc.iprog.dinnerplanner.model.Ingredient;
+import views.HeaderView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,8 +42,9 @@ public class DescriptionPopup extends Activity
 	private void initLayout()
 	{
 		model = ((DinnerPlannerApplication) this.getApplication()).getModel();
-		HeaderView hfc = new HeaderView(this, model);
-		hfc.updateHeaderFields();
+		
+		// Added the new header
+		new HeaderController(new HeaderView(this, model), this);
 		
 		TextView title        = (TextView) findViewById(R.id.description_popup_title);
 		TextView ingredients  = (TextView) findViewById(R.id.description_popup_ingredients);

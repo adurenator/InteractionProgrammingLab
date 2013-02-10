@@ -1,7 +1,9 @@
 package se.kth.csc.iprog.dinnerplanner;
 
+import controllers.HeaderController;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Ingredient;
+import views.HeaderView;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -24,8 +26,8 @@ public class Ingredients extends Activity {
 		TextView guestsN = (TextView) findViewById(R.id.guests_number);
 		guestsN.setText(""+model.getNumberOfGuests());*/
 		
-		HeaderView hfc = new HeaderView(this, model);
-		hfc.updateHeaderFields();
+		// Added the new header
+		new HeaderController(new HeaderView(this, model), this);
 		
 		//Get all the table layout inside the ScrollView
 		TableLayout ingredientsList = (TableLayout) findViewById(R.id.ingredients_table);
