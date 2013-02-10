@@ -109,7 +109,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
 
 	@Override
 	public void setNumberOfGuests(int numberOfGuests) {
-		if (numberOfGuests > 0) {
+		if (numberOfGuests >= 0) {
 			this.numberOfGuests = numberOfGuests;
 		}
 	}
