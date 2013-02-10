@@ -18,44 +18,13 @@
         android:layout_below="@id/header"
         android:layout_marginTop="5dp"/>
     
-    <!-- This is supposed to be a dynamic list. For the 2nd lab it will be a simple 3 option chooser -->
-    <!-- <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/dish_list_pattern_title"
-        android:layout_marginTop="20dp">
-        
-        <RadioButton
-            android:text="@string/adur_static_option1"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:paddingLeft="35dp"
-            android:drawableLeft="@drawable/guests3"/>
-        
-        <RadioButton
-            android:text="@string/adur_static_option2"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:paddingLeft="35dp"
-            android:drawableLeft="@drawable/guests3"/>
-        
-        <RadioButton
-            android:text="@string/adur_static_option3"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:paddingLeft="35dp"
-            android:drawableLeft="@drawable/guests3"/>
-        
-    </RadioGroup> -->
     <ListView
         android:id="@+id/dish_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/dish_list_pattern_title"
         android:layout_above="@id/footer"
-        android:choiceMode="singleChoice"
-        android:saveEnabled="true">
+        android:choiceMode="singleChoice">
         
     </ListView>
     
