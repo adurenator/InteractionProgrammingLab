@@ -119,5 +119,38 @@ public class SuperController
 		
 		if (i != null) c.startActivity(i);
 	}
+	
+	/**
+	 * Starts a new activity.
+	 * If no new activity is specified the previous activity is terminated.
+	 * If the new activity is the same as the previous activity nothing happens.
+	 * If popup is set to true the previous activity is not terminated. 
+	 * @param srcAct the source/previous activity.
+	 * @param dstAct the destination/new activity.
+	 * @param popup if true the dstAct is started as a popup, otherwise srcAct is stopped.
+	 */
+	@SuppressWarnings("rawtypes")
+	public static void changeActivity(Activity srcAct, Class dstAct, boolean popup)
+	{
+		Intent i = null;
+		Context c = srcAct.getApplicationContext();
+		Log.v("DinnerApp", "Activity title: " + srcAct.getLocalClassName());
+		
+		if(dstAct == null) {
+			srcAct.finish();
+			return;
+		}
+		
+		if(srcAct.getClass() == dstAct)
+			return;
+		
+		if(!popup)
+			srcAct.finish();
+
+		i = new Intent(srcAct.getApplicationContext(), dstAct);
+		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		
+		if (i != null) c.startActivity(i);
+	}
 
 }

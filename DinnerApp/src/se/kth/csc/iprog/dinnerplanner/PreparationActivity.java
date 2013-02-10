@@ -1,15 +1,14 @@
 package se.kth.csc.iprog.dinnerplanner;
 
-import java.util.Observer;
-
-import ExtendedClasses.ExpandableMenuAdapter;
+import controllers.HeaderController;
 
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+import views.HeaderView;
+import views.PreparationView;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
-import android.widget.ExpandableListView;
 
 public class PreparationActivity extends Activity {
 
@@ -21,13 +20,14 @@ public class PreparationActivity extends Activity {
 		// To get the dinner model you can use the following code:
 		DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
 		
-		// Create an expandable list view for the menu
-		ExpandableListView exp = (ExpandableListView) this.findViewById(R.id.expandable_list);
-		exp.setAdapter(new ExpandableMenuAdapter(this, model));
+		// Add the preparation view
+		new PreparationView(this, model);
 		
-		// Update the header fields
-		HeaderView hfc = new HeaderView(this, model);
-		hfc.updateHeaderFields();
+		// Add a header
+		new HeaderController(new HeaderView(this, model), this);
+		
+		// Add a footer
+		// TODO
 		
 		model.requestNotification();
 	}
