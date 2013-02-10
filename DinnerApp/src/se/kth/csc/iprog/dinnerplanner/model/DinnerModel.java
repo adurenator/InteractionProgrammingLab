@@ -106,7 +106,9 @@ public class DinnerModel extends Observable implements IDinnerModel {
 
 	@Override
 	public void setNumberOfGuests(int numberOfGuests) {
-		this.numberOfGuests = numberOfGuests;
+		if (numberOfGuests > 0) {
+			this.numberOfGuests = numberOfGuests;
+		}
 	}
 
 	@Override
@@ -183,4 +185,23 @@ public class DinnerModel extends Observable implements IDinnerModel {
 		notifyObservers();
 	}
 
+	
+	/*****************************************************/
+	/** UPDATING THE MENU ********************************/
+	/*****************************************************/
+	
+	public void setAppetizer(Dish d)
+	{
+		
+	}
+	
+	public void setMainCourse(Dish d)
+	{
+		
+	}
+	
+	public void setDessert(Dish d)
+	{
+		
+	}
 }

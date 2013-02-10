@@ -38,12 +38,15 @@ public class DishChooserView implements Observer {
 	
 	private void initLayout()
 	{		
-		t = (TextView) activity.findViewById(R.id.dish_list_pattern_title);
+		t        = (TextView) activity.findViewById(R.id.dish_list_pattern_title);
 		dishList = (ListView) activity.findViewById(R.id.dish_list);
 		
-		// initially, load the appetizer view
 		setDishInfo();
 	}
+	
+	/*************************************************************************/
+	/** LAYOUT UPDATING METHODS **********************************************/
+	/*************************************************************************/
 	
 	private void setDishInfo()
 	{
@@ -62,8 +65,6 @@ public class DishChooserView implements Observer {
 				break;
 		}
 		
-		// for some reason, it does not detect a click to any option in list
-		//dishList.setOnItemClickListener(itemClickListener);
 		dishList.setAdapter(aa);
 	}
 	
@@ -73,11 +74,45 @@ public class DishChooserView implements Observer {
 		for (Dish d : list) { ret.add(d); }
 		return ret;
 	}
+	
+	
+	/*************************************************************************/
+	/** PUBLIC METHODS *******************************************************/
+	/*************************************************************************/
+	
+	/**
+	 * Changes the internal view of the activity forward.
+	 * @return Returns whether the view class performed an action.
+	 */
+	public boolean performNext()
+	{
+		if (type < 3) {
+			++type;
+			setDishInfo();
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Changes the internal view of the activity backward.
+	 * @return Returns whether the view class performed an action.
+	 */
+	public boolean performBack()
+	{
+		if (type > 1) {
+			--type;
+			setDishInfo();
+			return true;
+		}
+		return false;
+	}
 
 	@Override
 	public void update(Observable arg0, Object arg1)
 	{
-		
+		// there is no activity nor code that changes the model contents, so
+		// there is nothing to do here.
 	}
 	
 
