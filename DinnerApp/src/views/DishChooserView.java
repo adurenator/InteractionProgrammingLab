@@ -22,7 +22,7 @@ public class DishChooserView implements Observer {
 	public TextView t;
 	
 	private Set<Dish> list;
-	private ArrayList<Dish> list1;
+	public ArrayList<Dish> list1;
 	private ImageArrayAdapter aa;
 	public int type;
 	

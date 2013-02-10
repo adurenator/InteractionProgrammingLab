@@ -23,7 +23,7 @@ public class DishChooser extends Activity implements FooterInterface
 		
 		// depending on which activity was running before, the first
 		// view to show may not be the appetizer selection. (type)
-		int type          = this.getIntent().getIntExtra("init", 1);
+		int type          = Integer.parseInt(this.getIntent().getStringExtra("init"));
 		DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
 		
 		dcv = new DishChooserView(this, model, type);

@@ -193,33 +193,57 @@ public class DinnerModel extends Observable implements IDinnerModel {
 	
 	public void setAppetizer(Dish d)
 	{
+		// delete previously added appetizer, if any
+		deleteTypeFromMenu(1);
+		menu.add(d);
 		
+		setChanged();
+		notifyObservers(null);
 	}
 	
 	public void setMainCourse(Dish d)
 	{
+		// delete previously added main course, if any
+		deleteTypeFromMenu(2);
+		menu.add(d);
 		
+		setChanged();
+		notifyObservers(null);
 	}
 	
 	public void setDessert(Dish d)
 	{
+		// delete previously added dessert, if any
+		deleteTypeFromMenu(3);
+		menu.add(d);
 		
+		setChanged();
+		notifyObservers(null);
 	}
 	
 	/*****************************************************/
 	/** MISC METHODS *************************************/
 	/*****************************************************/
 	
+	private void deleteTypeFromMenu(int type)
+	{
+		Iterator<Dish> it = menu.iterator();
+		while (it.hasNext()) {
+			if (it.next().type == type) {
+				it.remove();
+				break;
+			}
+		}
+	}
+	
 	public Dish getDish(int type, String name)
 	{
-		Dish ret = null;
-		
-		Set<Dish> aux = this.getDishesOfType(type);
-		Iterator<Dish> it = aux.iterator();
+		Dish ret          = null;
+		Iterator<Dish> it = dishes.iterator();
 		
 		while (it.hasNext()) {
 			ret = it.next();
-			if (ret.name.equals(name)) return ret;
+			if (ret.name.equals(name) && ret.type == type) return ret;
 		}
 		
 		return null;

@@ -1,7 +1,11 @@
 package controllers;
 
+import java.util.ArrayList;
+
+import controllers.SuperController;
 import se.kth.csc.iprog.dinnerplanner.DescriptionPopup;
 import views.DishChooserView;
+import Types.ExtraContent;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,6 +25,7 @@ public class DishChooserController implements OnItemClickListener, OnItemLongCli
 	{
 		this.dcv = dcv;
 		this.dcv.dishList.setOnItemClickListener(this);
+		this.dcv.dishList.setOnItemLongClickListener(this);	
 		this.dcv.dishList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		
 		selpos = -1;
@@ -29,28 +34,47 @@ public class DishChooserController implements OnItemClickListener, OnItemLongCli
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 	{
-		// marks the selected dish and updates the model
 		Log.v("DinnerApp", "Clicked element " + position);
 		
-		// deselect the previously selected dish if any
 		if (selpos != -1) {
 			RelativeLayout rv = (RelativeLayout) dcv.dishList.getChildAt(selpos);
 			RadioButton rb = (RadioButton) rv.getChildAt(0);
 			rb.setChecked(false);
 		}
 		
-		// select the new one and update de model
 		((RadioButton)((RelativeLayout) view).getChildAt(0)).setChecked(true);
+		selpos = position;
+		
+		switch (dcv.type) {
+			case 1:
+				dcv.model.setAppetizer(dcv.list1.get(position));
+				break;
+			case 2:
+				dcv.model.setMainCourse(dcv.list1.get(position));
+				break;
+			case 3:
+				dcv.model.setDessert(dcv.list1.get(position));
+				break;
+			default:
+				break;
+		}
 	}
 
 	@Override
 	public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
 	{
-		SuperController.ExtraContent ec[] = new SuperController.ExtraContent[2];
-		ec[0].name  = "type";
-		ec[1].extra = Integer.toString(dcv.type);
-		ec[1].name  = "name";
-		ec[1].extra = ((TextView)((RelativeLayout) view).getChildAt(2)).getText().toString();
+		Log.v("DinnerApp", "Item long click in pos: " + position);
+		
+		ArrayList<ExtraContent> ec = new ArrayList<ExtraContent>();
+		
+		ExtraContent ec1 = new ExtraContent();
+		ec1.name  = "type";
+		ec1.extra = Integer.toString(dcv.type);
+		ec.add(ec1);
+		ExtraContent ec2 = new ExtraContent();
+		ec2.name  = "name";
+		ec2.extra = ((TextView)((RelativeLayout) view).getChildAt(2)).getText().toString();
+		ec.add(ec2);
 		
 		SuperController.changeActivity(dcv.activity, DescriptionPopup.class, true, ec);
 		
