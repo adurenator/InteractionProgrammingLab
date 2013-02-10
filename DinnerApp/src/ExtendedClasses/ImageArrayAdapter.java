@@ -24,10 +24,7 @@ public class ImageArrayAdapter extends ArrayAdapter<Dish> {
 	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent)
-	{
-		// TODO Auto-generated method stub
-		//return super.getView(position, convertView, parent);
-		
+	{		
 		LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View row = inflater.inflate(R.layout.row, parent, false);
 		

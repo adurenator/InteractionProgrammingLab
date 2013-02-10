@@ -1,16 +1,19 @@
 package se.kth.csc.iprog.dinnerplanner;
 
+import controllers.SuperController;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 
-public class DishChooserController implements OnItemClickListener {
+public class DishChooserController implements OnItemClickListener, OnItemLongClickListener {
 
 	private DishChooserView dcv;
 	
 	public DishChooserController(DishChooserView dcv)
 	{
+		this.dcv = dcv;
 		this.dcv.dishList.setOnItemClickListener(this);
 	}
 
@@ -24,6 +27,12 @@ public class DishChooserController implements OnItemClickListener {
 		
 		
 		// select the new one and update de model
+	}
+
+	@Override
+	public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+		SuperController.performPositive(dcv.activity, "description");
+		return true;
 	}
 
 }

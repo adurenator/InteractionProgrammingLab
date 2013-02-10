@@ -29,7 +29,6 @@ public class DishChooserView implements Observer {
 		this.activity = activity;
 		this.model    = model;
 		this.type     = initialScreen;
-		this.activity.setContentView(R.layout.dish_list_pattern);
 		
 		initLayout();
 		

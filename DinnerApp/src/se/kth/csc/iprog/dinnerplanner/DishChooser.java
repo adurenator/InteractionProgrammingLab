@@ -17,16 +17,16 @@ public class DishChooser extends Activity implements FooterInterface
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.dish_list_pattern);
 		
-		// depending on whitch activity was running before, the first
+		// depending on which activity was running before, the first
 		// view to show may not be the appetizer selection. (type)
 		int type          = this.getIntent().getIntExtra("init", 1);
 		DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
 		
-		new FooterController(new FooterView(this), this);
 		dcv = new DishChooserView(this, model, type);
 		new DishChooserController(dcv);
-		
+		new FooterController(new FooterView(this), this);
 	}
 
 	@Override
