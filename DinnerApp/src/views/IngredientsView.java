@@ -34,6 +34,8 @@ public class IngredientsView implements Observer{
 		sort_cost_button = (ImageButton) activity.findViewById(R.id.sort_cost_button);
 		
 		initLayout();
+		
+		model.addObserver(this);
 	}
 
 	private void initLayout(){
