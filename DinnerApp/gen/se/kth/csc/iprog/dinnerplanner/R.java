@@ -34,12 +34,8 @@ public final class R {
     public static final class id {
         public static final int Cost=0x7f080013;
         public static final int Currency=0x7f080014;
-        public static final int ImageButton39=0x7f08000c;
-        public static final int ImageButton40=0x7f08000e;
-        public static final int ImageButton41=0x7f080010;
         public static final int Name=0x7f080011;
         public static final int Quantity=0x7f080012;
-        public static final int TableRow14=0x7f08000a;
         public static final int TextView42=0x7f08000f;
         public static final int TextView43=0x7f08000b;
         public static final int TextView44=0x7f08000d;
@@ -64,6 +60,7 @@ public final class R {
         public static final int guestSelectionTitle=0x7f080001;
         public static final int guests_button=0x7f080026;
         public static final int header=0x7f080005;
+        public static final int ingredients_button=0x7f080027;
         public static final int ingredients_table=0x7f080009;
         public static final int layout_ingredients_list=0x7f080008;
         public static final int list_item_parent=0x7f08002c;
@@ -76,9 +73,12 @@ public final class R {
         public static final int row_radio=0x7f08002d;
         public static final int row_title=0x7f08002f;
         public static final int scroll_ingredients_list=0x7f080007;
+        public static final int sort_cost_button=0x7f080010;
+        public static final int sort_name_button=0x7f08000c;
+        public static final int sort_quantity_button=0x7f08000e;
         public static final int startScreenButton=0x7f08001c;
         public static final int startScreenImage=0x7f08001a;
-        public static final int summary_button=0x7f080027;
+        public static final int table_header=0x7f08000a;
         public static final int total_price=0x7f080028;
         public static final int xx=0x7f080015;
     }

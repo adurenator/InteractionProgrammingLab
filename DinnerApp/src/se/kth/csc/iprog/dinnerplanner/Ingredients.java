@@ -1,17 +1,19 @@
 package se.kth.csc.iprog.dinnerplanner;
 
-import controllers.HeaderController;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
-import se.kth.csc.iprog.dinnerplanner.model.Ingredient;
+import views.FooterView;
 import views.HeaderView;
-import android.os.Bundle;
+import views.IngredientsView;
+import Interfaces.FooterInterface;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
-import android.view.View;
-import android.widget.TableLayout;
-import android.widget.TextView;
+import controllers.FooterController;
+import controllers.HeaderController;
+import controllers.IngredientsController;
+import controllers.SuperController;
 
-public class Ingredients extends Activity {
+public class Ingredients extends Activity implements FooterInterface{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,28 +30,8 @@ public class Ingredients extends Activity {
 		
 		// Added the new header
 		new HeaderController(new HeaderView(this, model), this);
-		
-		//Get all the table layout inside the ScrollView
-		TableLayout ingredientsList = (TableLayout) findViewById(R.id.ingredients_table);
-		//Iterate over all the ingredients
-		for(Ingredient ingr: model.getAllIngredients()){
-			//Load the view from the ingredients_row layout file
-		    View ingredientView = getLayoutInflater().inflate(R.layout.activity_ingredients_row, null);
-		    //Get the TextView from the specific ingredientView that should hold the name
-		    TextView ingredientName = (TextView) ingredientView.findViewById(R.id.Name);
-		    //Set the ingredient name to that view
-		    ingredientName.setText(ingr.getName());
-		    //Get the TextView from the specific ingredientView that should hold the quantity
-		    TextView ingredientQuantity = (TextView) ingredientView.findViewById(R.id.Quantity);
-		    //Set the ingredient quantity and unit to that view
-		    ingredientQuantity.setText(ingr.getQuantity()+" "+ingr.getUnit());
-		    //Get the TextView from the specific ingredientView that should hold the quantity
-		    TextView ingredientCost = (TextView) ingredientView.findViewById(R.id.Cost);
-		    //Set the ingredient quantity and unit to that view
-		    ingredientCost.setText(Double.toString(ingr.getPrice()));  //TODO how to reference to @string/currency ?
-		    //Add the dishView to the scroll view's linear layout
-		    ingredientsList.addView(ingredientView); 
-		}
+		new FooterController(new FooterView(this,true,false), this);
+		new IngredientsController(new IngredientsView(this, model));
 	}
 
 	@Override
@@ -57,6 +39,14 @@ public class Ingredients extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
+	}
+
+	@Override
+	public void performNext() {}
+
+	@Override
+	public void performBack() {
+		SuperController.changeActivity(this, null, false, null);
 	}
 
 }

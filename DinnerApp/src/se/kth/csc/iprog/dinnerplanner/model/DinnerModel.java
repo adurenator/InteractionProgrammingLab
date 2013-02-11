@@ -1,9 +1,12 @@
 package se.kth.csc.iprog.dinnerplanner.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Observable;
 import java.util.Set;
+
+import Types.SortType;
 
 public class DinnerModel extends Observable implements IDinnerModel {
 	
@@ -141,7 +144,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
 		}
 		return allIngredients;
 	}
-
+		
 	@Override
 	public float getTotalMenuPrice() {
 		float totalPrice = 0;
@@ -249,5 +252,55 @@ public class DinnerModel extends Observable implements IDinnerModel {
 		}
 		
 		return null;
+	}
+	
+	//Obtain the ingredients sorted (by name, quantity or price)
+	public ArrayList<Ingredient> getAllIngredients(SortType sort) {
+		Set<Ingredient> allIngredients = new HashSet<Ingredient>();
+		Set<Ingredient> ingredients;
+		for(Dish d : menu) {
+			ingredients = d.getIngredients();
+			for(Ingredient i : ingredients) {
+				allIngredients.add(i);
+			}
+		}
+		ArrayList<Ingredient> list_ingredients=new ArrayList<Ingredient>(allIngredients);
+		ArrayList<Ingredient> allIngredientsSorted = new ArrayList<Ingredient>();
+		int max = list_ingredients.size();
+		switch(sort){
+		case Name:
+			for(int i=0; i<max;i++){
+				Ingredient aux=list_ingredients.get(0);
+				for(Ingredient ingr:list_ingredients){
+					if(aux.getName().compareToIgnoreCase(ingr.getName())>0)
+						aux=ingr;
+				}
+				allIngredientsSorted.add(aux);
+				list_ingredients.remove(aux);
+			}
+			break;
+		case Quantity:
+			for(int i=0; i<max;i++){
+				Ingredient aux=list_ingredients.get(0);
+				for(Ingredient ingr:list_ingredients){
+					if(aux.getQuantity()>(ingr.getQuantity()))
+						aux=ingr;
+				}
+				allIngredientsSorted.add(aux);
+				list_ingredients.remove(aux);
+			}
+			break;
+		case Cost:
+			for(int i=0; i<max;i++){
+				Ingredient aux=list_ingredients.get(0);
+				for(Ingredient ingr:list_ingredients){
+					if(aux.getPrice()>(ingr.getPrice()))
+						aux=ingr;
+				}
+				allIngredientsSorted.add(aux);
+				list_ingredients.remove(aux);
+			}
+		}
+		return allIngredientsSorted;
 	}
 }

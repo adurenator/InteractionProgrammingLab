@@ -25,7 +25,7 @@ public class HeaderView implements Observer {
 		this.model    = model;
 		
 		guests_button  = (Button) activity.findViewById(R.id.guests_button);
-		summary_button = (Button) activity.findViewById(R.id.summary_button);
+		summary_button = (Button) activity.findViewById(R.id.ingredients_button);
 		
 		guests_label = (TextView) activity.findViewById(R.id.guests_button);
 		total_price  = (TextView) activity.findViewById(R.id.total_price);

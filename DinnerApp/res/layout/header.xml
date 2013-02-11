@@ -17,13 +17,13 @@
         android:text="6" />
 
     <Button
-        android:id="@+id/summary_button"
+        android:id="@+id/ingredients_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_gravity="center"
         android:textSize="20sp"
-        android:text="Summary" />
+        android:text="Ingredients" />
        
     <TextView
         android:id="@+id/total_price"

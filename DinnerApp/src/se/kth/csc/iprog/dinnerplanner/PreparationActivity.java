@@ -1,5 +1,7 @@
 package se.kth.csc.iprog.dinnerplanner;
 
+import java.util.ArrayList;
+
 import controllers.FooterController;
 import controllers.HeaderController;
 import controllers.SuperController;
@@ -10,6 +12,7 @@ import views.HeaderView;
 import views.PreparationView;
 
 import Interfaces.FooterInterface;
+import Types.ExtraContent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -50,8 +53,12 @@ public class PreparationActivity extends Activity implements FooterInterface {
 
 	@Override
 	public void performBack() {
-		// TODO something went wrong in the Ingredients class...
-		//SuperController.changeActivity(this, Ingredients.class, false, null);
+		ArrayList<ExtraContent> ec = new ArrayList<ExtraContent>();
+		ExtraContent ec1 = new ExtraContent();
+		ec1.name = "init";
+		ec1.extra = "3";
+		ec.add(ec1);
+		SuperController.changeActivity(this, DishChooser.class, false, ec);  //TODO something 
 	}
 
 }
