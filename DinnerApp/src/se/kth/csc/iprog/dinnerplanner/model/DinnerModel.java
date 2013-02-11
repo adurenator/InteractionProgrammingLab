@@ -60,15 +60,6 @@ public class DinnerModel extends Observable implements IDinnerModel {
 		dish2.addIngredient(dish2ing10);
 		dish2.addIngredient(dish2ing11);
 		dishes.add(dish2);
-		
-		// Add two dishes to the menu
-		//menu.add(dish1);
-		//menu.add(dish2);
-		menu.clear();
-		
-		// Add some guests to the party
-		//setNumberOfGuests(4);
-		setNumberOfGuests(0);
 	}
 	
 	/**

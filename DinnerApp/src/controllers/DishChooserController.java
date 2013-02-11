@@ -75,6 +75,10 @@ public class DishChooserController implements OnItemClickListener, OnItemLongCli
 		ec2.name  = "name";
 		ec2.extra = ((TextView)((RelativeLayout) view).getChildAt(2)).getText().toString();
 		ec.add(ec2);
+		ExtraContent ec3 = new ExtraContent();
+		ec3.name  = "image";
+		ec3.extra = dcv.list1.get(position).getImage();
+		ec.add(ec3);
 		
 		SuperController.changeActivity(dcv.activity, DescriptionPopup.class, true, ec);
 		

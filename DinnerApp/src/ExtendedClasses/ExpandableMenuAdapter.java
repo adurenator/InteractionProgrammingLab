@@ -9,6 +9,7 @@ import java.util.Set;
 import se.kth.csc.iprog.dinnerplanner.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
+import se.kth.csc.iprog.dinnerplanner.model.Ingredient;
 import android.content.Context;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ExpandableMenuAdapter extends BaseExpandableListAdapter implements Observer {
@@ -69,6 +71,19 @@ public class ExpandableMenuAdapter extends BaseExpandableListAdapter implements 
 			text.setText(dish.getName());
 			text = (TextView) convertView.findViewById(R.id.preparation_dish_description);
 			text.setText(dish.getDescription());
+			
+			// Display ingredients
+			LinearLayout ingredients = (LinearLayout) convertView.findViewById(R.id.preparation_ingredients);
+			ingredients.removeAllViews();
+			for(Ingredient i : dish.getIngredients()) {
+				text = new TextView(context);
+				text.setText(
+					i.getQuantity() +
+					((i.getUnit() == "")? "" : " " + i.getUnit()) +
+					" " + i.getName());
+				ingredients.addView(text);
+			}
+			
 			return convertView;
 		}
 		return null;

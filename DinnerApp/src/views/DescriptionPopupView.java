@@ -3,6 +3,7 @@ package views;
 import java.util.Set;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,7 +24,7 @@ public class DescriptionPopupView
 	public Activity a;
 	public DinnerModel model;
 	
-	public DescriptionPopupView(Activity a, DinnerModel model, int dishType, String dishName)
+	public DescriptionPopupView(Activity a, DinnerModel model, int dishType, String dishName, String dishImage)
 	{
 		this.a     = a;
 		this.model = model;
@@ -42,6 +43,11 @@ public class DescriptionPopupView
 		title.setText(d.getName());
 		ingredients.setText(formatIngredients(si));
 		instructions.setText(d.getDescription());
+		Resources resource = a.getResources();
+		int id = a.getResources().getIdentifier(
+			dishImage.substring(0, dishImage.lastIndexOf(".")),
+			"drawable", a.getPackageName());
+		img.setImageDrawable(resource.getDrawable(id));
 	}
 	
 	private String formatIngredients(Set<Ingredient> list)

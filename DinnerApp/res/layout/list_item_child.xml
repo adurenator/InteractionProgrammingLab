@@ -1,47 +1,84 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/preparation_list_lightgrey"
     android:padding="10sp"
-    android:orientation="vertical" >
+    android:weightSum="2"
+    android:orientation="horizontal" >
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:id="@+id/preparation_dish_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:src="@drawable/bakedbrie" />
+        android:layout_weight="1"
+        android:paddingRight="10dp"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/preparation_dish_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:paddingLeft="10sp"
-            android:text="A very good dish"
+            android:text="@string/example_dish"
             android:textSize="25sp" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
+	
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:paddingTop="10sp"
+	        android:text="@string/preparation_instructions"
+	        android:textStyle="bold" />
+	    
+	    <TextView
+	        android:id="@+id/preparation_dish_description"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:paddingTop="5sp" android:paddingBottom="10sp"
+	        android:text="@string/lorem_ipsum"
+	        android:textSize="15sp" />
+	    
+	</LinearLayout>
+	
+    <LinearLayout
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:paddingTop="10sp"
-        android:text="@string/preparation_instructions"
-        android:textStyle="bold" />
+        android:layout_weight="1"
+        android:orientation="vertical" >
+	    
+        <ImageView
+            android:id="@+id/preparation_dish_image"
+            android:contentDescription="@string/preparation_image_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:src="@drawable/icecream" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5sp"
+            android:textStyle="bold"
+            android:text="@string/preparation_ingredients" />
+	    
+	    <LinearLayout
+	        android:id="@+id/preparation_ingredients"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:paddingTop="5sp" android:paddingBottom="10sp"
+	        android:orientation="vertical" >
+		    
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/preparation_ingredient" />
+	        
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/preparation_ingredient" />
+	        
+	    </LinearLayout>
     
-    <TextView
-        android:id="@+id/preparation_dish_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5sp" android:paddingBottom="10sp"
-        android:text="@string/lorem_ipsum"
-        android:textSize="15sp" />
+    </LinearLayout>
 
 </LinearLayout>

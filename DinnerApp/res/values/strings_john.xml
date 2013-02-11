@@ -4,5 +4,9 @@
     <string name="preparation_title">Preparation</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam lacinia risus non erat vulputate at feugiat quam aliquet. Sed vitae sem tincidunt justo mattis blandit. Proin non nibh eu tellus.</string>
     <string name="preparation_instructions">Preparation instructions:</string>
+    <string name="preparation_ingredients">Ingredients:</string>
+    <string name="preparation_ingredient">Ingredient</string>
+    <string name="example_dish">A very good dish</string>
+    <string name="preparation_image_description">An image of the dish</string>
     
 </resources>

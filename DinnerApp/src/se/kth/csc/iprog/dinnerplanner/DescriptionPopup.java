@@ -20,10 +20,11 @@ public class DescriptionPopup extends Activity
 		
 		int type          = Integer.parseInt(getIntent().getStringExtra("type"));
 		String name       = getIntent().getStringExtra("name");
+		String image       = getIntent().getStringExtra("image");
 		DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
 		
 		new HeaderController(new HeaderView(this, model), this);
-		new DescriptionPopupController(new DescriptionPopupView(this, model, type, name));
+		new DescriptionPopupController(new DescriptionPopupView(this, model, type, name, image));
 		new HeaderController(new HeaderView(this, model), this);
 	}
 	

@@ -58,7 +58,7 @@ public class PreparationActivity extends Activity implements FooterInterface {
 		ec1.name = "init";
 		ec1.extra = "3";
 		ec.add(ec1);
-		SuperController.changeActivity(this, DishChooser.class, false, ec);  //TODO something 
+		SuperController.changeActivity(this, DishChooser.class, false, ec);
 	}
 
 }
